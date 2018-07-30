@@ -67,7 +67,7 @@ class AdminPacket(object):
         #packet header constractor
         self.version=1
         self.encry_alg=1
-        self.key_id=[01,01,01,01,01,01,01,01,01,01,01,01,01,07,01,04]
+        self.key_id=[02,02,02,02,02,02,02,02,02,02,02,02,02,05,06,01]
         self.sess_key=''
         self.sess_key_id=''
         self.userType_flag=1
@@ -75,7 +75,7 @@ class AdminPacket(object):
     def admin(self,s):
         req_id = random_int_list(0, 255, 2)                # Request ID 2字节
 #        print 'first request id : ', req_id       
-        user = 'client_qh001'                         # 用户名
+        user = 'client_test3'                         # 用户名
         userLen = len(user)                            # 用户名长度 10
         psd = 'node_child'  
                                   # 密码
@@ -85,7 +85,7 @@ class AdminPacket(object):
         
         body = [101] + req_id + [userLen, user, psdLen]
         
-        auth_id = [01] * 16              # 认证密钥ID 16字节
+        auth_id = [02,02,02,02,02,02,02,02,02,02,02,02,02,05,06,01]              # 认证密钥ID 16字节
         authKey = [01] * 32             # 认证密钥 32字节
         authKey_hmac256 = hmac_sha256(authKey, req_id)    # 认证密钥ID HMAC-SHA256方式加密
         
@@ -109,7 +109,7 @@ class AdminPacket(object):
         version = 1
         Encryp_Alg = 1            # 加密方式
 #         Encryp_id = [01] * 16    # 加密密钥ID 16字节
-        Encryp_id = [01,01,01,01,01,01,01,01,01,01,01,01,01,07,01,04]
+        Encryp_id = [02,02,02,02,02,02,02,02,02,02,02,02,02,05,06,01]
         mesLen = len(body_AES_pack)
         head = [version, Encryp_Alg] + len2bit(mesLen)
         head_pack = struct.pack('@4B', *head) + pack_bin(Encryp_id) if Encryp_Alg == 1 else struct.pack('@4B', *head)

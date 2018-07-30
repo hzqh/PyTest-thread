@@ -26,15 +26,16 @@ import unicodedata
 global Akm_HOST
 global Qkm_HOST
 #Qkm_HOST='192.168.91.84'
-Qkm_HOST='192.168.94.202'
+Qkm_HOST='10.64.117.1'
 #Qkm_HOST='192.168.126.132'
-remote_user_id=7000002
+remote_user_id=100259
 Akm_HOST='192.168.91.183'
 BUFSIZE = 1024 
 PORT = 5530
 
 k=0
 d=0
+
 
 def setUserInfo():
     userinfo = ExcelUntil.excel_read_all("D:\\workplace\\PyTest-frame\\data\\userinfo9.xls",index_name='Sheet1',startrow = 1,startcol =0) #读取Excel用户信息，读取起始位置startrow = 1,startcol =0
@@ -47,21 +48,17 @@ def setUserInfo():
         userinfo[i][4]=ExcelUntil.excel_data_to_list(userinfo[i][4])   
     return userinfo
 
-    
 def admin_thread():
-
     clientList=setUserInfo()      
     print 'starting at:', time.ctime() 
 
     threads = [] 
-
     for i in range(0,len(clientList)):  # create all threads 
        
         t = threading.Thread(target=clientRun,args=(Qkm_HOST,clientList[i][1],clientList[i][2],clientList[i][3],clientList[i][4]))
 
         threads.append(t) 
        
-  
     for i in range(0,len(clientList)):  # start all threads 
         threads[i].start() 
   
@@ -94,11 +91,10 @@ def clientRun(host_ip,user_name,user_typ,key_id,authid):
         
     ack_key=admin_packet.get_sess_key()
     ack_key_id=admin_packet.get_sess_key_id()
-    time.sleep(30)
+    time.sleep(10)
 #    qkmApply.qkmapply(s,ack_key,ack_key_id,user_name) 
     if qkmGet.qkmget(s,ack_key,ack_key_id,user_name)==1:
        d=d+1   
-
     
 if __name__ == '__main__':
 #    attend_num=UserNum
@@ -106,6 +102,8 @@ if __name__ == '__main__':
     admin_thread()
     print '----totalclient----',k
     print '----totalget----',d
+
+
 
 
     

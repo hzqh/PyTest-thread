@@ -1,6 +1,10 @@
 eclipse.preferences.version=1
 encoding//ApplicationKey/adminPacket.py=utf8
+encoding//commonUntils/DBConnection.py=utf8
+encoding//commonUntils/ExcelUntil.py=utf-8
+encoding//commonUntils/socketUntil.py=utf-8
 encoding//commonUntils/sql-autoImport.py=utf8
+encoding//server/adminPacket.py=utf8
 encoding//server/dianduidian.py=utf8
 encoding//server/qkmApply.py=utf8
 encoding//server/qkmApply1.py=utf8

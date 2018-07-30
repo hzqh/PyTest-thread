@@ -51,18 +51,18 @@ def qkmget(s,ack_key,ack_key_id,client_name):
     req_key_num=10
     req_key_len=32
     req_key_id_list=[]
-    peer_name_1='client_qh002'
-    peer_name_2='client_qh003'
-    peer_name_3='client_qh004'
-    peer_name_4='client_qh005'
-    peer_name_5='client_qh006'
-    peer_name_6='client_qh007'
-    peer_name_7='client_qh008'
-    peer_name_8='client_qh009'
-    peer_name_9='client_qh010'
-    peer_name_10='client_qh011'
+    peer_name_1='client_test4081'
+#    peer_name_2='client_qh003'
+#    peer_name_3='client_qh004'
+#    peer_name_4='client_qh005'
+#    peer_name_5='client_qh006'
+#    peer_name_6='client_qh007'
+#    peer_name_7='client_qh008'
+#    peer_name_8='client_qh009'
+#    peer_name_9='client_qh010'
+#    peer_name_10='client_qh011'
     req_specified=0
-    peer_num=10
+    peer_num=1
        
     req_packet.set_req_id(req_reqid)
     req_packet.set_get_typ(req_get_typ)
@@ -78,24 +78,24 @@ def qkmget(s,ack_key,ack_key_id,client_name):
     req_packet.set_peer_num(peer_num)
     req_packet.set_peer_name_1(peer_name_1)
     req_packet.set_peer_len_1(len(peer_name_1))
-    req_packet.set_peer_name_2(peer_name_2)
-    req_packet.set_peer_len_2(len(peer_name_2))
-    req_packet.set_peer_name_3(peer_name_3)
-    req_packet.set_peer_len_3(len(peer_name_3))
-    req_packet.set_peer_name_4(peer_name_4)
-    req_packet.set_peer_len_4(len(peer_name_4))
-    req_packet.set_peer_name_5(peer_name_5)
-    req_packet.set_peer_len_5(len(peer_name_5))
-    req_packet.set_peer_name_6(peer_name_6)
-    req_packet.set_peer_len_6(len(peer_name_6))
-    req_packet.set_peer_name_7(peer_name_7)
-    req_packet.set_peer_len_7(len(peer_name_7))
-    req_packet.set_peer_name_8(peer_name_8)
-    req_packet.set_peer_len_8(len(peer_name_8))
-    req_packet.set_peer_name_9(peer_name_9)
-    req_packet.set_peer_len_9(len(peer_name_9))
-    req_packet.set_peer_name_10(peer_name_10)
-    req_packet.set_peer_len_10(len(peer_name_10))
+#    req_packet.set_peer_name_2(peer_name_2)
+#    req_packet.set_peer_len_2(len(peer_name_2))
+#    req_packet.set_peer_name_3(peer_name_3)
+#    req_packet.set_peer_len_3(len(peer_name_3))
+#    req_packet.set_peer_name_4(peer_name_4)
+#    req_packet.set_peer_len_4(len(peer_name_4))
+#    req_packet.set_peer_name_5(peer_name_5)
+#    req_packet.set_peer_len_5(len(peer_name_5))
+#    req_packet.set_peer_name_6(peer_name_6)
+#    req_packet.set_peer_len_6(len(peer_name_6))
+#    req_packet.set_peer_name_7(peer_name_7)
+#    req_packet.set_peer_len_7(len(peer_name_7))
+#    req_packet.set_peer_name_8(peer_name_8)
+#    req_packet.set_peer_len_8(len(peer_name_8))
+#    req_packet.set_peer_name_9(peer_name_9)
+#    req_packet.set_peer_len_9(len(peer_name_9))
+#    req_packet.set_peer_name_10(peer_name_10)
+#    req_packet.set_peer_len_10(len(peer_name_10))
  
     req_packet_pack=req_packet.get_packet()
     print '****************',req_packet_pack
@@ -341,5 +341,5 @@ def qkmget(s,ack_key,ack_key_id,client_name):
 #            print'failed'
 #    else:
 #        print '*****req failed***** and status is ',rc_status
-         
+#         
          

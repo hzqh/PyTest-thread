@@ -30,8 +30,8 @@ global Qkm_HOST
 
 
 #Qkm_HOST='192.168.126.131'
-#Qkm_HOST='192.168.91.85'
-Qkm_HOST='192.168.94.202'
+#Qkm_HOST='192.168.91.55'
+Qkm_HOST='10.64.113.219'
 remote_user_id=7000002
 Akm_HOST='192.168.91.183'
 BUFSIZE = 1024 
@@ -52,9 +52,9 @@ KeyID_2=[01,01,01,01,01,01,01,01,01,01,01,01,01,07,01,22]
 UserNum=1
 adminNum=1
 
-UserName = 'client_qh001'
-UserTyp= 1
-KeyID = [01,01,01,01,01,01,01,01,01,01,01,01,01,07,01,04]
+#UserName = 'client_qh001'
+#UserTyp= 1
+#KeyID = [01,01,01,01,01,01,01,01,01,01,01,01,01,07,01,04]
 
 def setUserInfo():
     userinfo = ExcelUntil.excel_read_all("D:\\workplace\\PyTest-frame\\data\\userinfo1.xls",index_name='Sheet1',startrow = 1,startcol =0) #读取Excel用户信息，读取起始位置startrow = 1,startcol =0
@@ -65,7 +65,7 @@ def setUserInfo():
         userinfo[i][2] = int(userinfo[i][2])
         userinfo[i][3]=ExcelUntil.excel_data_to_list(userinfo[i][3])
         userinfo[i][4]=ExcelUntil.excel_data_to_list(userinfo[i][4])
-        
+     
     return userinfo
     
 def admin_thread():
@@ -75,6 +75,7 @@ def admin_thread():
     #for i in range(0,adminNum):        
     print 'starting at:', time.ctime() 
     threads = [] 
+
 #    nloops = range(adminNum) 
   
     for i in range(0,len(clientList)):  # create all threads 
@@ -132,13 +133,13 @@ def multiThread(attend_num,clientList):
  
 if __name__ == '__main__':                                    
 #    attend_num=UserNum  
-    
+
     while True: 
         clientList=setUserInfo()         
         admin_thread()                                                            
         print '--------------------------------------------------------------------------------',tag
         if tag != 1:
             break
-        time.sleep(1)
+        time.sleep(3)
 #        break    
         
